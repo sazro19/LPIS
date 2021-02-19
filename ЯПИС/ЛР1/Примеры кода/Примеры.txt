@@ -1,0 +1,28 @@
+Matrix matrix = m * m;
+Vector vector = v1 + v2;
+Vector row = matrix[0];
+Matrix matrix = 4 * m;
+
+void minMaxEl(Vector vector){
+	int max = vector[0];
+	int min = vector[0];
+	for (int i = 0; i < vector.length; i++){
+         if (vector[i] > max) max = vector[i];
+         if (vector[i] < min) min = vector[i];
+    }
+    print(max);
+    print(min);
+}
+
+Vector norm(Vector vector){
+	double len = 0;
+	    for (int i = 0; i < vector.length; i++){
+	    len += vector[i] * vector[i];
+    }
+    len = sqrt(len);
+    for (int i = 0; i < vector.length; i++){
+	    vector[i] /= len;
+    }
+    return vector;
+}
+
