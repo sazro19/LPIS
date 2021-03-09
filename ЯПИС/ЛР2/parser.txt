@@ -69,17 +69,12 @@ arrayInitializer
     : '{' (variableInitializer (',' variableInitializer)* (',')? )? '}'
     ;
 
-typeArgument
-    : typeType
-    ;
-
 formalParameters
     : '(' formalParameterList? ')'
     ;
 
 formalParameterList
-    : formalParameter (',' formalParameter)* (',' lastFormalParameter)?
-    | lastFormalParameter
+    : formalParameter (',' formalParameter)*
     ;
 
 formalParameter
