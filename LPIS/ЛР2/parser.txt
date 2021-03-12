@@ -160,7 +160,7 @@ expression
     | '(' typeType ')' expression
     | expression postfix=('++' | '--')
     | prefix=('+'|'-'|'++'|'--') expression
-    | prefix=('~'|'!') expression
+    | prefix='!' expression
     | expression bop=('*'|'/'|'%') expression
     | expression bop=('+'|'-') expression
     | expression bop=('<=' | '>=' | '>' | '<') expression
@@ -171,15 +171,17 @@ expression
     | <assoc=right> expression
       bop=('=' | '+=' | '-=' | '*=' | '/=')
       expression
+	;
 
 primary
     : '(' expression ')'
     | literal
     | IDENTIFIER
     ;
-
+	
 typeType
-    : (primitiveType) ('[' ']')*
+    : typeType ('[' ']')
+	| primitiveType
     ;
 
 primitiveType
